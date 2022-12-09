@@ -3,6 +3,12 @@ package com.company;
 import java.util.Locale;
 import java.util.Scanner;
 
+/**
+ * Třída se stará o text
+ * @author Marie Čubanová
+ * @version 0.1a
+ * @since Java 16
+ */
 public class GameDialog {
 
     public static final String ANSI_RESET = "\u001B[0m";
@@ -25,6 +31,12 @@ public class GameDialog {
 
     private Scanner sc = new Scanner(System.in);
 
+    /**
+     * Uvítá hráče
+     * @param gameName název hry
+     * @param version verze
+     * @param author autor hry
+     */
     public void intro(String gameName, double version, String author) {
         System.out.println("Vítejte ve hře");
         System.out.println("------------------------------------");
@@ -38,6 +50,10 @@ public class GameDialog {
 
     }
 
+    /**
+     * Vypíše text
+     * @param sentence text pro výpis
+     */
     public void say(String sentence) {
         String[] words = sentence.split(" ");
         for (String word : words) {
@@ -51,6 +67,11 @@ public class GameDialog {
         System.out.println();
     }
 
+    /**
+     * Vypíše text barevně
+     * @param sentence
+     * @param color
+     */
     public void say(String sentence, String color) {
         switch (color.toLowerCase(Locale.ROOT)) {
             case "black" -> System.out.print(ANSI_BLACK);
@@ -66,6 +87,10 @@ public class GameDialog {
         System.out.print(ANSI_RESET);
     }
 
+    /**
+     * Vstup uživatele
+     * @return
+     */
     public String userInput() {
         return sc.nextLine();
     }
